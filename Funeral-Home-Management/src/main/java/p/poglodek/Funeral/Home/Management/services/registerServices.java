@@ -2,6 +2,7 @@ package p.poglodek.Funeral.Home.Management.services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import p.poglodek.Funeral.Home.Management.Enum.statusRegister;
 import p.poglodek.Funeral.Home.Management.model.registerRequest;
 import p.poglodek.Funeral.Home.Management.validator.emailValidator;
 
@@ -9,14 +10,11 @@ import p.poglodek.Funeral.Home.Management.validator.emailValidator;
 @AllArgsConstructor
 public class registerServices {
 
-    private final emailValidator emailValidator;
+
     private final userServices userServices;
 
-    public String register(registerRequest registerRequest)
+    public statusRegister register(registerRequest registerRequest)
     {
-        var validEmail = emailValidator.test(registerRequest.getEmail());
-        if(!validEmail) throw new IllegalStateException("Email is not valid");
-        userServices.signUpUser(registerRequest);
-        return  null;
+        return  userServices.signUpUser(registerRequest);
     }
 }

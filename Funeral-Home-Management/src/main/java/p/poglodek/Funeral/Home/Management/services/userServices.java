@@ -7,8 +7,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import p.poglodek.Funeral.Home.Management.Database.repository.userRepository;
+import p.poglodek.Funeral.Home.Management.Enum.statusRegister;
 import p.poglodek.Funeral.Home.Management.mappers.userMapper;
 import p.poglodek.Funeral.Home.Management.model.registerRequest;
+import p.poglodek.Funeral.Home.Management.validator.emailValidator;
 
 @Service
 @AllArgsConstructor
@@ -16,6 +18,7 @@ public class userServices implements UserDetailsService {
 
     private final userRepository userRepository;
     private final userMapper userMapper;
+    private final emailValidator emailValidator;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
 
@@ -25,15 +28,14 @@ public class userServices implements UserDetailsService {
         return userRepository.findByEmail(email)
                 .orElseThrow(()-> new UsernameNotFoundException("email not found."));
     }
-    public boolean signUpUser(registerRequest registerRequest)
+    public statusRegister signUpUser(registerRequest registerRequest)
     {
+        if(!emailValidator.test(registerRequest.getEmail())) return statusRegister.EMAIL_NOT_VALID;
         var user = userMapper.mapToUser(registerRequest);
-        if(userRepository.findByEmail(user.getEmail()).isPresent()) throw new IllegalStateException("User exist");
-        var encodedPassword =
-                bCryptPasswordEncoder.encode(user.getPassword());
+        if(userRepository.findByEmail(user.getEmail()).isPresent()) return statusRegister.USER_EXIST;
+        var encodedPassword = bCryptPasswordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
         userRepository.save(user);
-        System.out.println(user.getEmail() + " " + user.getPassword());
-        return  true;
+        return statusRegister.OK;
     }
 }
