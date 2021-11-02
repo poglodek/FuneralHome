@@ -1,4 +1,4 @@
-package p.poglodek.Funeral.Home.Management.Database.Entity;
+package p.poglodek.Funeral.Home.Management.Database.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

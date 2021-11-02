@@ -1,4 +1,4 @@
-package p.poglodek.Funeral.Home.Management.Database.Entity;
+package p.poglodek.Funeral.Home.Management.Database.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class burialType {
+public class flowerType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
