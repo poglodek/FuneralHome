@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import p.poglodek.Funeral.Home.Management.Database.Enum.burialType;
+
 
 import javax.persistence.*;
 import java.util.Date;
@@ -25,6 +25,6 @@ public class funeralInformation {
     public Date dateOfBurial;
     public String cemeteryAddress;
     public boolean isInCemetery;
-    @Enumerated(EnumType.STRING)
+    @OneToOne
     public burialType wayOfBurial;
 }

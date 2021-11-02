@@ -5,25 +5,20 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class user {
+public class burialType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
-    public String firstName;
-    public String lastName;
-    public String email;
-    public String password;
-    public String passwordSalt;
-    public int phoneNumber;
-    @OneToMany
-    public Set<client> clients;
+    public String type;
+    public String description;
+    public double price;
+    @OneToOne
+    public client client;
 }
