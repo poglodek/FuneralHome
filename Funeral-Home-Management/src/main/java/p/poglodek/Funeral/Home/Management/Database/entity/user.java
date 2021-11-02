@@ -25,8 +25,7 @@ public class user implements UserDetails {
     public String lastName;
     public String email;
     public String password;
-    public String passwordSalt;
-    public boolean isEnable;
+    public boolean isEnable = true;
     public int phoneNumber;
     @OneToMany
     public Set<client> clients;
@@ -36,6 +35,14 @@ public class user implements UserDetails {
         SimpleGrantedAuthority authority = new SimpleGrantedAuthority("user");
 
         return Collections.singletonList(authority);
+    }
+
+    public user(String firstName, String lastName, String email, String password, int phoneNumber) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
     }
 
     @Override
@@ -50,7 +57,7 @@ public class user implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
