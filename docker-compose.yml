@@ -1,13 +1,15 @@
 version: "3.9"
 services:
   api:
-    container_name: 'api-slt'
+    container_name: 'api-funreal'
     build: './Funeral-Home-Management/'
     ports:
       - "8090:8090"
     depends_on:
       - database
     restart: always
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-FuneralHomeMnt:3306/FuneralHomeMnt
     expose:
       - 8090
   database:
