@@ -2,12 +2,14 @@ version: "3.9"
 services:
   api:
     container_name: 'api-slt'
-    build: './SelfTest/'
+    build: '.'
     ports:
       - "8090:8090"
     depends_on:
       - database
     restart: always
+    expose:
+      - 8090
   database:
     container_name: 'mysql-FuneralHomeMnt'
     image: mysql
