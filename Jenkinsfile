@@ -9,7 +9,7 @@ pipeline {
         stage('Clean') {
             steps {
                 sh "ls"
-                sh "cd Funeral-Home-Management"
+                sh "cd Funeral-Home-Management/"
                 sh "ls"
                 sh "mvn clean"
             }
