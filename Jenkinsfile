@@ -8,6 +8,7 @@ pipeline {
     stages {
         stage('Clean') {
             steps {
+                sh "cd Funeral-Home-Management"
                 sh "mvn clean"
             }
         }
