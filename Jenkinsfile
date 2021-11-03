@@ -8,20 +8,23 @@ pipeline {
     stages {
         stage('Clean') {
             steps {
-                sh "ls"
-                sh "cd Funeral-Home-Management/"
-                sh "ls"
-                sh "mvn clean"
+                dir('Funeral-Home-Management/') {
+                    sh "mvn clean"
+                }                
             }
         }
         stage('Build') {
             steps {
-                sh "mvn package"
+                dir('Funeral-Home-Management/') {
+                    sh "mvn package"
+                }
             }
         }
         stage('Test') {
             steps {
-                sh "mvn test"
+                dir('Funeral-Home-Management/') {
+                    sh "mvn test"
+                }
             }
         }
         stage('Deploy') {
