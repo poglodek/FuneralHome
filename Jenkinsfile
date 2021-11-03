@@ -16,14 +16,14 @@ pipeline {
         stage('Build') {
             steps {
                 dir('Funeral-Home-Management/') {
-                    sh "mvn package -DSPRING_DATASOURCE_URL=jdbc:mysql://mysql-FuneralHomeMnt:3306/FuneralHomeMnt"
+                    sh "mvn package "
                 }
             }
         }
         stage('Test') {
             steps {
                 dir('Funeral-Home-Management/') {
-                    sh "mvn test -DSPRING_DATASOURCE_URL=jdbc:mysql://mysql-FuneralHomeMnt:3306/FuneralHomeMnt"
+                    sh "mvn test "
                 }
             }
         }

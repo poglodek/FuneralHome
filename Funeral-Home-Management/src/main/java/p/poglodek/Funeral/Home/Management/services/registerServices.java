@@ -15,6 +15,14 @@ public class registerServices {
 
     public statusRegister register(registerRequest registerRequest)
     {
+        if(registerRequest.getPassword().isEmpty())
+            return statusRegister.PASSWORD_REQUIRED;
+        else if(registerRequest.getFirstName().isEmpty())
+            return statusRegister.FIRST_NAME_REQUIRED;
+        else if(registerRequest.getLastName().isEmpty())
+            return statusRegister.LAST_NAME_REQUIRED;
+        else if(registerRequest.getPhoneNumber() <99999999)
+            return statusRegister.PHONE_NUMBER_REQUIRED;
         return  userServices.signUpUser(registerRequest);
     }
 }
