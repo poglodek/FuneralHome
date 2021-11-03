@@ -16,7 +16,7 @@ pipeline {
         stage('Build') {
             steps {
                 dir('Funeral-Home-Management/') {
-                    sh "mvn package -SPRING_DATASOURCE_URL=jdbc:mysql://mysql-FuneralHomeMnt:3306/FuneralHomeMnt"
+                    sh "mvn package -D SPRING_DATASOURCE_URL=jdbc:mysql://mysql-FuneralHomeMnt:3306/FuneralHomeMnt"
                 }
             }
         }
