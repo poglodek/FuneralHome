@@ -23,7 +23,7 @@ pipeline {
         stage('Test') {
             steps {
                 dir('Funeral-Home-Management/') {
-                    sh "mvn test -SPRING_DATASOURCE_URL=jdbc:mysql://mysql-FuneralHomeMnt:3306/FuneralHomeMnt"
+                    sh "mvn test -D SPRING_DATASOURCE_URL=jdbc:mysql://mysql-FuneralHomeMnt:3306/FuneralHomeMnt"
                 }
             }
         }
