@@ -3,17 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Register Here! </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="Paweł Ogłodek" />
+    <link rel="stylesheet" type="text/css"  th:href="@{/css/styles.css}"  />
 </head>
 <body>
 
-    <h3><p th:text="${status}"></p></h3>
-    <form action="#" th:action="@{/register}" th:object="${registerRequest}" method="post">
-        <p>Email: <input type="text" th:field="*{email}"></p>
-        <p>First Name: <input type="text" th:field="*{firstName}"></p>
-        <p>Last Name: <input type="text" th:field="*{lastName}"></p>
-        <p>Phone number: <input type="number" th:field="*{phoneNumber}"></p>
-        <p>Password: <input type="password" th:field="*{password}"></p>
-        <input type="submit" value="Register here!">
-    </form>
+    <div th:replace="fragments/template :: header"> </div>
+    <section class="page-section portfolio" id="portfolio">
+        <div class="container">
+            <h3><p th:text="${status}"></p></h3>
+            <form action="#" th:action="@{/register}" th:object="${registerRequest}" method="post">
+                <p>Email: <input type="text" th:field="*{email}"></p>
+                <p>First Name: <input type="text" th:field="*{firstName}"></p>
+                <p>Last Name: <input type="text" th:field="*{lastName}"></p>
+                <p>Phone number: <input type="number" th:field="*{phoneNumber}"></p>
+                <p>Password: <input type="password" th:field="*{password}"></p>
+                <input type="submit" value="Register here!">
+            </form>
+        </div>
+    </section>
+    <div th:replace="fragments/template :: footer"> </div>
 </body>
 </html>

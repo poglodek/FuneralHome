@@ -9,11 +9,13 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import p.poglodek.Funeral.Home.Management.services.userServices;
 
 @AllArgsConstructor
 @EnableWebSecurity
 @Configuration
+@EnableWebMvc
 public class webSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final userServices userServices;
