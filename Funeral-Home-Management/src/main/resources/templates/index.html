@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css"  th:href="@{css/styles.css}"  />
 </head>
 <body>
+    <div th:replace="fragments/template :: header"> </div>
     Index page.
+    <div th:replace="fragments/template :: footer"> </div>
 </body>
 </html>
