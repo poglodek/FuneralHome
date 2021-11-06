@@ -21,7 +21,7 @@
                             <a class="nav-link" href="#">Clients</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Flowers</a>
+                            <a class="nav-link" th:href="@{/flowers}">Flowers</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link "  href="#">Burial Types</a>
@@ -29,7 +29,7 @@
 
                     </ul>
                     <form class="d-flex">
-                        <button th:href="@{/logout}" class="btn btn-warning my-2 my-sm-0" type="submit">Logout</button>
+                        <a th:href="@{/logout}" class="btn btn-warning my-2 my-sm-0" type="submit">Logout</a>
                     </form>
 
                 </div>
