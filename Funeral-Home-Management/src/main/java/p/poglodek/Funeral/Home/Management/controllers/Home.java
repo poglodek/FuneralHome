@@ -14,9 +14,5 @@ public class Home {
     {
         return "index";
     }
-    @GetMapping("/css/styles.css")
-    public String index()
-    {
-        return "fragments/styles.css";
-    }
+
 }
