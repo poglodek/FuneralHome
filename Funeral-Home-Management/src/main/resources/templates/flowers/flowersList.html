@@ -30,11 +30,11 @@
             <tr th:if="${flowers.empty}">
                 <td colspan="2"> No Flowers Available  </td>
             </tr>
-            <tr th:each="flowers : ${flower}">
-                <td scope="row"><span th:text="${book.name}"> Name </span></td>
-                <td><span th:text="${book.type}"> Type </span></td>
-                <td><span th:text="${book.description}"> Description </span></td>
-                <td><span th:text="${book.price}"> Price in $ </span></td>
+            <tr th:each="flower : ${flowers}">
+                <td scope="row"><span th:text="${flower.name}"> Name </span></td>
+                <td><span th:text="${flower.type}"> Type </span></td>
+                <td><span th:text="${flower.description}"> Description </span></td>
+                <td><span th:text="${flower.price}"> Price in $ </span></td>
             </tr>
             </tbody>
         </table>

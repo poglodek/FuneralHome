@@ -26,6 +26,5 @@ public class client {
     public user createdBy;
     @OneToOne
     public  funeralInformation funeralInformation;
-    @OneToOne
-    public  flowerType flowerType;
+
 }

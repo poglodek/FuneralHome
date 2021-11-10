@@ -21,5 +21,5 @@ public class flowerType {
     public String description;
     public double price;
     @OneToOne
-    public client client;
+    public user user;
 }

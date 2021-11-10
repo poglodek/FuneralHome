@@ -31,7 +31,7 @@
             </div>
             <div class="form-group">
                 <label>Price</label>
-                <input th:value="*{price}" type="number" class="form-control" id="price"  placeholder="Enter Price in $">
+                <input th:field="*{price}" type="number" class="form-control" id="price"  step="0.01" placeholder="Enter Price in $">
             </div>
             <input type="submit" class="btn btn-primary" value="Add flower" />
         </form>

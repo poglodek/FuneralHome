@@ -29,6 +29,10 @@ public class user implements UserDetails {
     public int phoneNumber;
     @OneToMany
     public Set<client> clients;
+    @OneToOne
+    public  flowerType flowerType;
+    @OneToOne
+    public  funeralInformation funeralInformation;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

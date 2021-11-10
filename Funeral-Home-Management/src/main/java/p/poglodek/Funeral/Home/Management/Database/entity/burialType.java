@@ -20,5 +20,5 @@ public class burialType {
     public String description;
     public double price;
     @OneToOne
-    public client client;
+    public user user;
 }
