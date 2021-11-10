@@ -10,11 +10,21 @@ import java.util.List;
 @Component
 public class flowerMapper {
     public FlowerDto mapToDto(flowerType flower){
-        return new FlowerDto(
+            return new FlowerDto(
+                    flower.getName(),
+                    flower.getType(),
+                    flower.getDescription(),
+                    flower.getPrice()
+        );
+    }
+    public flowerType mapToModel(FlowerDto flower){
+        return new flowerType(
+                0l,
                 flower.getName(),
                 flower.getType(),
                 flower.getDescription(),
-                flower.getPrice()
+                flower.getPrice(),
+                null
         );
     }
     public ArrayList<FlowerDto> mapListToDto(List<flowerType> flowers){
