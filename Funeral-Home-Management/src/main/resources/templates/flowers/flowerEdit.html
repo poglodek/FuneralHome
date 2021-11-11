@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en" >
 <head>
     <meta charset="UTF-8">
-    <title>Add  Flower</title>
+    <title>Edit  Flower</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="Paweł Ogłodek" />
@@ -16,7 +16,7 @@
 <main style="margin: 25px">
     <h3><p th:text="${status}"></p></h3>
     <div class="container-fluid text-muted">
-        <form action="#" th:action="@{/flower/add}" th:object="${flowerDto}" method="post">
+        <form th:object="${flowerDto}" action="#" th:action="@{/flower/edit/{id}(id=${flowerId})}"  method="post">
             <div class="form-group">
                 <label>Name</label>
                 <input th:field="*{name}" type="text" class="form-control" id="name"  placeholder="Enter Name">
@@ -33,7 +33,7 @@
                 <label>Price</label>
                 <input th:field="*{price}" type="number" class="form-control" id="price"  step="0.01" placeholder="Enter Price in $">
             </div>
-            <input type="submit" class="btn btn-primary" value="Add flower" />
+            <input type="submit" class="btn btn-primary" value="Edit flower" />
         </form>
     </div>
 </main>

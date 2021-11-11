@@ -28,7 +28,6 @@ public class flowerServices {
 
     public CrudEnum AddFlower(FlowerDto flowerDto)
     {
-        System.out.println(flowerDto.getPrice());
         if (flowerDto.getName().isEmpty())
             return  CrudEnum.INVALID_NAME;
         if (flowerDto.getDescription().isEmpty())
@@ -42,15 +41,34 @@ public class flowerServices {
     }
 
     public FlowerDto getFlower(String id) {
-        System.out.println(id);
-        if(!longHelper.tryParseLong(id) || !flowerReposiotry.existsById(Long.parseLong(id)))
+        if(!canEditFlower(id))
             return null;
-        var flower = flowerReposiotry.findById(Long.parseLong(id)).get();
-        var user = userRepository.findByEmail(SecurityContextHolder.getContext().getAuthentication().getName()).get();
-        if(flower.getUser() == user)
-            return flowerMapper.mapToDto(flower);
-        else
-            return null;
+        return flowerMapper.mapToDto(flowerReposiotry.findById(Long.parseLong(id)).get());
 
+    }
+    public boolean canEditFlower(String id){
+        if(!longHelper.tryParseLong(id) || !flowerReposiotry.existsById(Long.parseLong(id)))
+            return false;
+        if(flowerReposiotry.findById(Long.parseLong(id)).get().getUser() == userRepository.findByEmail(SecurityContextHolder.getContext().getAuthentication().getName()).get())
+            return true;
+        return false;
+    }
+
+    public CrudEnum updateFlower(FlowerDto flowerDto, String id) {
+        if(!canEditFlower(id))
+            return CrudEnum.CANNOT_UPDATE;
+        else if(flowerDto.getPrice() < 0)
+            return CrudEnum.INVALID_PRICE;
+        else if(flowerDto.getName().isEmpty())
+            return CrudEnum.INVALID_NAME;
+        else if(flowerDto.getDescription().isEmpty())
+            return CrudEnum.INVALID_DESCRIPTION;
+        var flower = flowerReposiotry.findById(Long.parseLong(id)).get();
+        flower.setDescription(flowerDto.getDescription());
+        flower.setPrice(flowerDto.getPrice());
+        flower.setName(flowerDto.getName());
+        flower.setType(flowerDto.getType());
+        flowerReposiotry.save(flower);
+        return CrudEnum.UPDATED;
     }
 }

@@ -28,13 +28,44 @@ public class FlowerController {
         model.addAttribute("flowers", flowerServices.GetFlowers());
         return "flowers/flowersList";
     }
-    @GetMapping("/info/{id}")
+    @GetMapping("/{id}")
     public String infoFlower(@PathVariable("id") String id, Model model)
     {
         var flower = flowerServices.getFlower(id);
         model.addAttribute("flower",flower == null ? "" : flower);
+
         return "/flowers/infoFlower";
     }
+
+    @GetMapping("/edit/{id}")
+    public String editFlower(@PathVariable("id") String id, Model model)
+    {
+        model.addAttribute("status","Edit Flower");
+        model.addAttribute("flowerDto",flowerServices.getFlower(id));
+        model.addAttribute("flowerId", id);
+
+        return "/flowers/flowerEdit";
+    }
+    @PostMapping("/edit/{id}")
+    public String editFlower(@PathVariable("id") String id, Model model,@ModelAttribute FlowerDto flowerDto)
+    {
+        var result = flowerServices.updateFlower(flowerDto, id);
+        if (result == CrudEnum.UPDATED)
+            return "redirect:/flower/all";
+        else if(result == CrudEnum.INVALID_PRICE)
+            model.addAttribute("status","Invalid Price");
+        else if(result == CrudEnum.INVALID_DESCRIPTION)
+            model.addAttribute("status","Invalid Description");
+        else if(result == CrudEnum.INVALID_NAME)
+            model.addAttribute("status","Invalid Name");
+        else
+            model.addAttribute("status","You Cannot update this flower");
+        model.addAttribute("flowerDto",flowerDto);
+        model.addAttribute("flowerId", id);
+        return "/flowers/flowerEdit";
+    }
+
+
 
     @GetMapping("/add")
     public String addFlower(Model model){
