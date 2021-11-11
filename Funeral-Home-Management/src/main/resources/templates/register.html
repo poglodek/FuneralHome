@@ -13,7 +13,7 @@
     <section class="page-section portfolio" id="portfolio">
         <div class="container">
             <h3><p th:text="${status}"></p></h3>
-            <form action="#" th:action="@{/register}" th:object="${registerRequest}" method="post">
+            <form action="#" th:action="@{/register}" th:object="${userRegisterDto}" method="post">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
                     <input th:field="*{email}" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">

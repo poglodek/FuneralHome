@@ -6,9 +6,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import p.poglodek.Funeral.Home.Management.Enum.statusRegister;
-import p.poglodek.Funeral.Home.Management.model.registerRequest;
+import p.poglodek.Funeral.Home.Management.Dto.User.userRegisterDto;
 import p.poglodek.Funeral.Home.Management.services.registerServices;
 
 @Controller
@@ -21,12 +20,12 @@ public class RegisterController {
     public String register(Model model)
     {
         model.addAttribute("status","Register Here!");
-        model.addAttribute("registerRequest",new registerRequest());
+        model.addAttribute("registerRequest",new userRegisterDto());
         return "register";
     }
 
     @PostMapping("/register")
-    public String register(@ModelAttribute registerRequest request,Model model)
+    public String register(@ModelAttribute userRegisterDto request, Model model)
     {
         System.out.println("register POST");
         var result = registerServices.register(request);

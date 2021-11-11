@@ -1,4 +1,4 @@
-package p.poglodek.Funeral.Home.Management.model;
+package p.poglodek.Funeral.Home.Management.Dto.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class registerRequest {
+public class userRegisterDto {
 
     public String firstName;
     public String lastName;

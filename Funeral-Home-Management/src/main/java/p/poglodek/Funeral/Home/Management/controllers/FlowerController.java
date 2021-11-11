@@ -2,15 +2,12 @@ package p.poglodek.Funeral.Home.Management.controllers;
 
 
 import lombok.AllArgsConstructor;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import p.poglodek.Funeral.Home.Management.Dto.Flower.FlowerDto;
 import p.poglodek.Funeral.Home.Management.Enum.CrudEnum;
-import p.poglodek.Funeral.Home.Management.mappers.flowerMapper;
-import p.poglodek.Funeral.Home.Management.model.registerRequest;
 import p.poglodek.Funeral.Home.Management.services.flowerServices;
 
 @Controller
