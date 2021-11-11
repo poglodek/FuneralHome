@@ -11,6 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class FlowerDto {
+    public Long id;
     public String name;
     public String type;
     public String description;
