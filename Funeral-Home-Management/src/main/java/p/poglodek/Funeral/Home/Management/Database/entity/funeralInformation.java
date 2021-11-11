@@ -27,4 +27,8 @@ public class funeralInformation {
     public boolean isInCemetery;
     @OneToOne
     public burialType wayOfBurial;
+    @ManyToOne
+    public  flowerType flowerType;
+    @ManyToOne
+    public  burialType burialType;
 }

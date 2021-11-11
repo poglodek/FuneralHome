@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -28,7 +29,7 @@ public class user implements UserDetails {
     public boolean isEnable = true;
     public int phoneNumber;
     @OneToMany
-    public Set<client> clients;
+    public List<client> clients;
     @OneToOne
     public  flowerType flowerType;
     @OneToOne

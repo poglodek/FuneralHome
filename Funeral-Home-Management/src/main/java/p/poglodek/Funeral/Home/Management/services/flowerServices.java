@@ -7,6 +7,8 @@ import p.poglodek.Funeral.Home.Management.Database.repository.flowerReposiotry;
 import p.poglodek.Funeral.Home.Management.Database.repository.userRepository;
 import p.poglodek.Funeral.Home.Management.Dto.Flower.FlowerDto;
 import p.poglodek.Funeral.Home.Management.Enum.CrudEnum;
+import p.poglodek.Funeral.Home.Management.Helpers.IntegerHelper;
+import p.poglodek.Funeral.Home.Management.Helpers.LongHelper;
 import p.poglodek.Funeral.Home.Management.mappers.flowerMapper;
 
 import java.util.ArrayList;
@@ -17,6 +19,7 @@ public class flowerServices {
     private flowerMapper flowerMapper;
     private flowerReposiotry flowerReposiotry;
     private userRepository userRepository;
+    private LongHelper longHelper;
 
     public ArrayList<FlowerDto> GetFlowers()
     {
@@ -38,4 +41,16 @@ public class flowerServices {
         return CrudEnum.CREATED;
     }
 
+    public FlowerDto getFlower(String id) {
+        System.out.println(id);
+        if(!longHelper.tryParseLong(id) || !flowerReposiotry.existsById(Long.parseLong(id)))
+            return null;
+        var flower = flowerReposiotry.findById(Long.parseLong(id)).get();
+        var user = userRepository.findByEmail(SecurityContextHolder.getContext().getAuthentication().getName()).get();
+        if(flower.getUser() == user)
+            return flowerMapper.mapToDto(flower);
+        else
+            return null;
+
+    }
 }

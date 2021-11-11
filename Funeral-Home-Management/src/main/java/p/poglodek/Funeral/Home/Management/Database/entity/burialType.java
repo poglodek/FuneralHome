@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -21,4 +22,6 @@ public class burialType {
     public double price;
     @OneToOne
     public user user;
+    @OneToMany
+    public List<funeralInformation> funeralInformationList;
 }

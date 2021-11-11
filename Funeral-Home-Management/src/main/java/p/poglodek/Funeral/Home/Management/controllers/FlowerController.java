@@ -28,6 +28,14 @@ public class FlowerController {
         model.addAttribute("flowers", flowerServices.GetFlowers());
         return "flowers/flowersList";
     }
+    @GetMapping("/info/{id}")
+    public String infoFlower(@PathVariable("id") String id, Model model)
+    {
+        var flower = flowerServices.getFlower(id);
+        model.addAttribute("flower",flower == null ? "" : flower);
+        return "/flowers/infoFlower";
+    }
+
     @GetMapping("/add")
     public String addFlower(Model model){
         model.addAttribute("status", "Add new flower");

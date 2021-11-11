@@ -24,7 +24,7 @@ public class flowerMapper {
                 flower.getType(),
                 flower.getDescription(),
                 flower.getPrice(),
-                null
+                null,null
         );
     }
     public ArrayList<FlowerDto> mapListToDto(List<flowerType> flowers){
