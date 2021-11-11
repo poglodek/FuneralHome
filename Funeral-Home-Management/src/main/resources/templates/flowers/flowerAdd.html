@@ -13,7 +13,7 @@
 <div th:replace="fragments/template :: header"> </div>
 <br />
 <br />
-<main style="margin: 25px">
+<main style="min-height: 600px; margin: 25px">
     <h3><p th:text="${status}"></p></h3>
     <div class="container-fluid text-muted">
         <form action="#" th:action="@{/flower/add}" th:object="${flowerDto}" method="post">
