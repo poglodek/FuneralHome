@@ -32,7 +32,7 @@ public class flowerServices {
             return  CrudEnum.INVALID_NAME;
         if (flowerDto.getDescription().isEmpty())
             return CrudEnum.INVALID_DESCRIPTION;
-        if (flowerDto.getPrice() < 0)
+        if (flowerDto.getPrice() <= 0)
             return CrudEnum.INVALID_PRICE;
         var flower = flowerMapper.mapToModel(flowerDto);
         flower.setUser(userRepository.findByEmail(SecurityContextHolder.getContext().getAuthentication().getName()).get());
