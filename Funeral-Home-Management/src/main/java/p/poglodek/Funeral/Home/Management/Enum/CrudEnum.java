@@ -2,6 +2,7 @@ package p.poglodek.Funeral.Home.Management.Enum;
 
 public enum CrudEnum {
     OK,
+    VALID,
     CREATED,
     DELETED,
     UPDATED,

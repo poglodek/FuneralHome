@@ -25,14 +25,10 @@ public class flowerServices {
         return flowerMapper.mapListToDto(flowerReposiotry.findByUser(userRepository.findByEmail(SecurityContextHolder.getContext().getAuthentication().getName()).get()));
     }
 
-    public CrudEnum AddFlower(FlowerDto flowerDto)
-    {
-        if (flowerDto.getName().isEmpty())
-            return  CrudEnum.INVALID_NAME;
-        if (flowerDto.getDescription().isEmpty())
-            return CrudEnum.INVALID_DESCRIPTION;
-        if (flowerDto.getPrice() <= 0)
-            return CrudEnum.INVALID_PRICE;
+    public CrudEnum AddFlower(FlowerDto flowerDto) {
+        var isValidFlower = isValidFlower(flowerDto);
+        if(isValidFlower != CrudEnum.VALID)
+            return isValidFlower;
         var flower = flowerMapper.mapToModel(flowerDto);
         flower.setUser(userRepository.findByEmail(SecurityContextHolder.getContext().getAuthentication().getName()).get());
         flowerReposiotry.save(flower);
@@ -54,12 +50,9 @@ public class flowerServices {
     public CrudEnum updateFlower(FlowerDto flowerDto, String id) {
         if(!canEditFlower(id))
             return CrudEnum.CANNOT_UPDATE;
-        else if(flowerDto.getPrice() < 0)
-            return CrudEnum.INVALID_PRICE;
-        else if(flowerDto.getName().isEmpty())
-            return CrudEnum.INVALID_NAME;
-        else if(flowerDto.getDescription().isEmpty())
-            return CrudEnum.INVALID_DESCRIPTION;
+        var isValidFlower = isValidFlower(flowerDto);
+        if(isValidFlower != CrudEnum.VALID)
+            return isValidFlower;
         var flower = flowerReposiotry.findById(Long.parseLong(id)).get();
         flower.setDescription(flowerDto.getDescription());
         flower.setPrice(flowerDto.getPrice());
@@ -68,4 +61,14 @@ public class flowerServices {
         flowerReposiotry.save(flower);
         return CrudEnum.UPDATED;
     }
+    private CrudEnum isValidFlower(FlowerDto flowerDto){
+        if(flowerDto.getPrice() < 0)
+            return CrudEnum.INVALID_PRICE;
+        else if(flowerDto.getName().isEmpty())
+            return CrudEnum.INVALID_NAME;
+        else if(flowerDto.getDescription().isEmpty())
+            return CrudEnum.INVALID_DESCRIPTION;
+        return CrudEnum.VALID;
+    }
+
 }
