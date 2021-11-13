@@ -22,7 +22,7 @@ public class FlowerController {
     public String flowersList(Model model){
         var username = SecurityContextHolder.getContext().getAuthentication().getName();
 
-        model.addAttribute("flowers", flowerServices.GetFlowers());
+        model.addAttribute("flowers", flowerServices.GetFlowersOfUser());
         return "flowers/flowersList";
     }
     @GetMapping("/{id}")

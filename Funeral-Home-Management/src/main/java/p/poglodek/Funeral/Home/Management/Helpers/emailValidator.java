@@ -1,4 +1,4 @@
-package p.poglodek.Funeral.Home.Management.validator;
+package p.poglodek.Funeral.Home.Management.Helpers;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

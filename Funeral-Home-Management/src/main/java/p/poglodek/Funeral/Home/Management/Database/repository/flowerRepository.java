@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface flowerReposiotry extends JpaRepository<flowerType,Long> {
+public interface flowerRepository extends JpaRepository<flowerType,Long> {
 
     List<flowerType> findAll();
     List<flowerType> findByUser(user user);

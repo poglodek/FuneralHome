@@ -17,18 +17,18 @@ import java.util.Date;
 public class funeralInformation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    private Long id;
     @OneToOne
-    public client client;
-    public String bodyCoolerNumber;
-    public boolean isInCooler;
-    public Date dateOfBurial;
-    public String cemeteryAddress;
-    public boolean isInCemetery;
+    private client client;
+    private String bodyCoolerNumber;
+    private boolean isInCooler;
+    private Date dateOfBurial;
+    private String cemeteryAddress;
+    private boolean isInCemetery;
     @OneToOne
-    public burialType wayOfBurial;
+    private burialType wayOfBurial;
     @ManyToOne
-    public  flowerType flowerType;
+    private  flowerType flowerType;
     @ManyToOne
-    public  burialType burialType;
+    private  burialType burialType;
 }

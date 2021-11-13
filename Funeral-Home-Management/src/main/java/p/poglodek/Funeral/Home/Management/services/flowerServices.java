@@ -3,11 +3,10 @@ package p.poglodek.Funeral.Home.Management.services;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-import p.poglodek.Funeral.Home.Management.Database.repository.flowerReposiotry;
+import p.poglodek.Funeral.Home.Management.Database.repository.flowerRepository;
 import p.poglodek.Funeral.Home.Management.Database.repository.userRepository;
 import p.poglodek.Funeral.Home.Management.Dto.Flower.FlowerDto;
 import p.poglodek.Funeral.Home.Management.Enum.CrudEnum;
-import p.poglodek.Funeral.Home.Management.Helpers.IntegerHelper;
 import p.poglodek.Funeral.Home.Management.Helpers.LongHelper;
 import p.poglodek.Funeral.Home.Management.mappers.flowerMapper;
 
@@ -17,11 +16,11 @@ import java.util.ArrayList;
 @AllArgsConstructor
 public class flowerServices {
     private flowerMapper flowerMapper;
-    private flowerReposiotry flowerReposiotry;
+    private flowerRepository flowerReposiotry;
     private userRepository userRepository;
     private LongHelper longHelper;
 
-    public ArrayList<FlowerDto> GetFlowers()
+    public ArrayList<FlowerDto> GetFlowersOfUser()
     {
         return flowerMapper.mapListToDto(flowerReposiotry.findByUser(userRepository.findByEmail(SecurityContextHolder.getContext().getAuthentication().getName()).get()));
     }

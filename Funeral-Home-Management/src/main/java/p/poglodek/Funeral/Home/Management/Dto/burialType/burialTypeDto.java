@@ -1,5 +1,4 @@
-package p.poglodek.Funeral.Home.Management.Dto.Flower;
-
+package p.poglodek.Funeral.Home.Management.Dto.burialType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,8 +9,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class FlowerDto {
-    private Long id;
+public class burialTypeDto {
     private String name;
     private String type;
     private String description;

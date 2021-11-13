@@ -31,12 +31,7 @@ public class flowerMapper {
     public ArrayList<FlowerDto> mapListToDto(List<flowerType> flowers){
         var list = new ArrayList<FlowerDto>();
         for (var flower: flowers) {
-            list.add(new FlowerDto(
-                    flower.getId(),
-                    flower.getName(),
-                    flower.getType(),
-                    flower.getDescription(),
-                    flower.getPrice()));
+            list.add(mapToDto(flower));
         }
         return list;
 

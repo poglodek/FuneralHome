@@ -16,15 +16,15 @@ import javax.persistence.*;
 public class client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
-    public String firstName;
-    public String lastName;
-    public String email;
-    public String password;
+    private Long id;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String password;
     @ManyToOne
     @JoinColumn(nullable = true)
-    public user createdBy;
+    private user createdBy;
     @OneToOne
-    public  funeralInformation funeralInformation;
+    private  funeralInformation funeralInformation;
 
 }

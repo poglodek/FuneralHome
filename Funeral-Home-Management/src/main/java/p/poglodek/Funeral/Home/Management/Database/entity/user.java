@@ -21,19 +21,19 @@ import java.util.Set;
 public class user implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
-    public String firstName;
-    public String lastName;
-    public String email;
-    public String password;
-    public boolean isEnable = true;
-    public int phoneNumber;
+    private Long id;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String password;
+    private boolean isEnable = true;
+    private int phoneNumber;
     @OneToMany
-    public List<client> clients;
+    private List<client> clients;
     @OneToOne
-    public  flowerType flowerType;
+    private  flowerType flowerType;
     @OneToOne
-    public  funeralInformation funeralInformation;
+    private  funeralInformation funeralInformation;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

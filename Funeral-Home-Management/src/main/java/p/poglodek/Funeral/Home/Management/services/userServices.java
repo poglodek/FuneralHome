@@ -10,7 +10,7 @@ import p.poglodek.Funeral.Home.Management.Database.repository.userRepository;
 import p.poglodek.Funeral.Home.Management.Enum.statusRegister;
 import p.poglodek.Funeral.Home.Management.mappers.userMapper;
 import p.poglodek.Funeral.Home.Management.Dto.User.userRegisterDto;
-import p.poglodek.Funeral.Home.Management.validator.emailValidator;
+import p.poglodek.Funeral.Home.Management.Helpers.emailValidator;
 
 @Service
 @AllArgsConstructor

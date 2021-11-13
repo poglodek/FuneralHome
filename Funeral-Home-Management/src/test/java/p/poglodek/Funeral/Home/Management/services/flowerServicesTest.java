@@ -9,7 +9,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import p.poglodek.Funeral.Home.Management.Database.entity.user;
-import p.poglodek.Funeral.Home.Management.Database.repository.flowerReposiotry;
+import p.poglodek.Funeral.Home.Management.Database.repository.flowerRepository;
 import p.poglodek.Funeral.Home.Management.Database.repository.userRepository;
 import p.poglodek.Funeral.Home.Management.Dto.Flower.FlowerDto;
 import p.poglodek.Funeral.Home.Management.Enum.CrudEnum;
@@ -23,7 +23,7 @@ import static org.mockito.Mockito.when;
 class flowerServicesTest {
 
     @Mock
-    private flowerReposiotry flowerReposiotry;
+    private flowerRepository flowerReposiotry;
     @Mock
     private userRepository userRepository;
     private flowerServices flowerServices;
@@ -37,7 +37,7 @@ class flowerServicesTest {
         SecurityContextHolder.setContext(securityContext);
         when(SecurityContextHolder.getContext().getAuthentication().getName()).thenReturn("test@mail.com");
         var userTest = new user("First","Last","test@mail.com","P4S5w0rd!.!", 123123123);
-        when(userRepository.findByEmail("test")).thenReturn(java.util.Optional.of(userTest));
+        when(userRepository.findByEmail("test@mail.com")).thenReturn(java.util.Optional.of(userTest));
     }
 
 
@@ -73,24 +73,6 @@ class flowerServicesTest {
         var result = flowerServices.AddFlower(flowerDto);
         assertEquals(CrudEnum.INVALID_PRICE, result);
     }
-    @Test
-    void addFlower_AllCorrect_ShouldReturn_CrudEnumCREATED() {
 
-        flowerServices = new flowerServices(new flowerMapper(),flowerReposiotry,userRepository, new LongHelper());
-        var flowerDto = new FlowerDto(0L, "Test","Testing Flower","Very pretty flower", 1);
-        var result = flowerServices.AddFlower(flowerDto);
-        assertEquals(CrudEnum.INVALID_PRICE, result);
-    }
-
-    @Test
-    void getFlower() {
-    }
-
-    @Test
-    void canEditFlower() {
-    }
-
-    @Test
-    void updateFlower() {
-    }
+    
 }
