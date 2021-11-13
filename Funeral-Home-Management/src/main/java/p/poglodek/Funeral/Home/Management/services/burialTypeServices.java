@@ -8,7 +8,6 @@ import p.poglodek.Funeral.Home.Management.Database.repository.userRepository;
 import p.poglodek.Funeral.Home.Management.Dto.burialType.burialTypeDto;
 import p.poglodek.Funeral.Home.Management.Helpers.LongHelper;
 import p.poglodek.Funeral.Home.Management.mappers.burialTypesMapper;
-import p.poglodek.Funeral.Home.Management.mappers.flowerMapper;
 
 import java.util.List;
 

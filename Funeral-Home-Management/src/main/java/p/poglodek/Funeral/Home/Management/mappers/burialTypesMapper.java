@@ -10,13 +10,14 @@ import java.util.List;
 @Service
 public class burialTypesMapper {
     public burialTypeDto mapToDto(burialType burialType){
-        return new burialTypeDto(burialType.getName(),
+        return new burialTypeDto(burialType.getId(),
+                burialType.getName(),
                 burialType.getType(),
                 burialType.getDescription(),
                 burialType.getPrice());
     }
     public burialType mapToModel(burialTypeDto burialType){
-        return new burialType(0L,
+        return new burialType(burialType.getId(),
                 burialType.getName(),
                 burialType.getType(),
                 burialType.getDescription(),

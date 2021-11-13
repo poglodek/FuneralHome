@@ -48,9 +48,7 @@ public class flowerServices {
     public boolean canEditFlower(String id){
         if(!longHelper.tryParseLong(id) || !flowerReposiotry.existsById(Long.parseLong(id)))
             return false;
-        if(flowerReposiotry.findById(Long.parseLong(id)).get().getUser() == userRepository.findByEmail(SecurityContextHolder.getContext().getAuthentication().getName()).get())
-            return true;
-        return false;
+        return flowerReposiotry.findById(Long.parseLong(id)).get().getUser() == userRepository.findByEmail(SecurityContextHolder.getContext().getAuthentication().getName()).get();
     }
 
     public CrudEnum updateFlower(FlowerDto flowerDto, String id) {

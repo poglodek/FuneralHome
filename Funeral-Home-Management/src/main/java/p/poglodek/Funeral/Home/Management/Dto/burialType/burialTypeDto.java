@@ -10,6 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class burialTypeDto {
+    private Long id;
     private String name;
     private String type;
     private String description;
