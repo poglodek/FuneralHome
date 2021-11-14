@@ -55,4 +55,19 @@ public class burialTypeServices {
         return  burialTypesMapper.mapToDto(burialTypeRepository.findById(Long.parseLong(id)).get());
 
     }
+
+    public CrudEnum updateBurialType(burialTypeDto burialTypeDto, String id) {
+        if(!canEditBurialType(id))
+            return CrudEnum.CANNOT_UPDATE;
+        var isValidBurialType = IsBurialTypeValid(burialTypeDto);
+        if(isValidBurialType != CrudEnum.VALID)
+            return isValidBurialType;
+        var burialType = burialTypeRepository.findById(Long.parseLong(id)).get();
+        burialType.setName(burialTypeDto.getName());
+        burialType.setType(burialTypeDto.getType());
+        burialType.setDescription(burialTypeDto.getDescription());
+        burialType.setPrice(burialTypeDto.getPrice());
+        burialTypeRepository.save(burialType);
+        return CrudEnum.UPDATED;
+    }
 }
