@@ -5,10 +5,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import p.poglodek.Funeral.Home.Management.Dto.burialType.burialTypeDto;
 import p.poglodek.Funeral.Home.Management.Enum.CrudEnum;
 import p.poglodek.Funeral.Home.Management.services.burialTypeServices;
@@ -21,6 +18,12 @@ public class BurialTypesController {
 
     private burialTypeServices burialTypeServices;
 
+
+    @GetMapping("/{id}")
+    public String infoFlower(@PathVariable("id") String id, Model model) {
+        model.addAttribute("burialType", burialTypeServices.getBurialTypeDtoById(id));
+        return "burialTypes/burialTypeInfo";
+    }
 
     @GetMapping("/all")
     public String burialTypesList(Model model){
@@ -49,4 +52,6 @@ public class BurialTypesController {
         model.addAttribute("burialTypeDto", burialTypeDto);
         return "burialTypes/burialTypeAdd";
     }
+
+
 }

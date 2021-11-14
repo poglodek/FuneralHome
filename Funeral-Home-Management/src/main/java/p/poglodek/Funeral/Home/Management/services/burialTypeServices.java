@@ -43,4 +43,16 @@ public class burialTypeServices {
             return CrudEnum.INVALID_DESCRIPTION;
         return CrudEnum.VALID;
     }
+    public boolean canEditBurialType(String id){
+        if(!longHelper.tryParseLong(id) || !burialTypeRepository.existsById(Long.parseLong(id)))
+            return false;
+        return burialTypeRepository.findById(Long.parseLong(id)).get().getUser() == userRepository.findByEmail(SecurityContextHolder.getContext().getAuthentication().getName()).get();
+    }
+
+    public burialTypeDto getBurialTypeDtoById(String id) {
+        if(!canEditBurialType(id))
+            return null;
+        return  burialTypesMapper.mapToDto(burialTypeRepository.findById(Long.parseLong(id)).get());
+
+    }
 }
