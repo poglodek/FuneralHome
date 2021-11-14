@@ -34,7 +34,7 @@ public class burialTypeServices {
         burialTypeRepository.save(burialType);
         return CrudEnum.CREATED;
     }
-    private CrudEnum IsBurialTypeValid(burialTypeDto burialTypeDto){
+    public CrudEnum IsBurialTypeValid(burialTypeDto burialTypeDto){
         if(burialTypeDto.getPrice() < 0)
             return CrudEnum.INVALID_PRICE;
         else if(burialTypeDto.getName().isEmpty())
