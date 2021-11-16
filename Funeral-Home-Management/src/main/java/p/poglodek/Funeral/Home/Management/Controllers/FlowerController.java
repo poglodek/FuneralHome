@@ -1,4 +1,4 @@
-package p.poglodek.Funeral.Home.Management.controllers;
+package p.poglodek.Funeral.Home.Management.Controllers;
 
 
 import lombok.AllArgsConstructor;
@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import p.poglodek.Funeral.Home.Management.Dto.Flower.FlowerDto;
 import p.poglodek.Funeral.Home.Management.Enum.CrudEnum;
+import p.poglodek.Funeral.Home.Management.Services.FlowerServices;
 
 
 @Controller
@@ -15,7 +16,7 @@ import p.poglodek.Funeral.Home.Management.Enum.CrudEnum;
 @RequestMapping("/flower")
 public class FlowerController {
 
-    private p.poglodek.Funeral.Home.Management.services.flowerServices flowerServices;
+    private FlowerServices flowerServices;
 
 
     @GetMapping("/")

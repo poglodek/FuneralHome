@@ -1,4 +1,4 @@
-package p.poglodek.Funeral.Home.Management.services;
+package p.poglodek.Funeral.Home.Management.Services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -8,7 +8,7 @@ import p.poglodek.Funeral.Home.Management.Database.Repository.UserRepository;
 import p.poglodek.Funeral.Home.Management.Dto.BurialType.BurialTypeDto;
 import p.poglodek.Funeral.Home.Management.Enum.CrudEnum;
 import p.poglodek.Funeral.Home.Management.Helpers.LongHelper;
-import p.poglodek.Funeral.Home.Management.mappers.BurialTypesMapper;
+import p.poglodek.Funeral.Home.Management.Mappers.BurialTypesMapper;
 
 import java.util.List;
 

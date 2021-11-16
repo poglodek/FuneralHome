@@ -1,4 +1,4 @@
-package p.poglodek.Funeral.Home.Management.controllers;
+package p.poglodek.Funeral.Home.Management.Controllers;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;

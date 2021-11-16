@@ -1,4 +1,4 @@
-package p.poglodek.Funeral.Home.Management.controllers;
+package p.poglodek.Funeral.Home.Management.Controllers;
 
 import lombok.AllArgsConstructor;
 
@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import p.poglodek.Funeral.Home.Management.Enum.StatusRegister;
 import p.poglodek.Funeral.Home.Management.Dto.User.UserRegisterDto;
-import p.poglodek.Funeral.Home.Management.services.RegisterServices;
+import p.poglodek.Funeral.Home.Management.Services.RegisterServices;
 
 @Controller
 @AllArgsConstructor

@@ -1,7 +1,5 @@
-package p.poglodek.Funeral.Home.Management.mappers;
+package p.poglodek.Funeral.Home.Management.Mappers;
 
-import org.aspectj.lang.annotation.Before;
-import org.checkerframework.checker.units.qual.C;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import p.poglodek.Funeral.Home.Management.Database.Entity.Client;

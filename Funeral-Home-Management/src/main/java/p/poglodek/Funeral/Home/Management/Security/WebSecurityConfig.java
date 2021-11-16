@@ -1,4 +1,4 @@
-package p.poglodek.Funeral.Home.Management.security;
+package p.poglodek.Funeral.Home.Management.Security;
 
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -11,7 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import p.poglodek.Funeral.Home.Management.services.UserServices;
+import p.poglodek.Funeral.Home.Management.Services.UserServices;
 
 @AllArgsConstructor
 @EnableWebSecurity

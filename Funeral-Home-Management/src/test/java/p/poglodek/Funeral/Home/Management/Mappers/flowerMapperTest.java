@@ -1,4 +1,4 @@
-package p.poglodek.Funeral.Home.Management.mappers;
+package p.poglodek.Funeral.Home.Management.Mappers;
 
 import lombok.AllArgsConstructor;
 import org.junit.jupiter.api.Test;

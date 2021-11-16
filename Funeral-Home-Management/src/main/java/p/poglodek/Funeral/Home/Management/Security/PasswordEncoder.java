@@ -1,4 +1,4 @@
-package p.poglodek.Funeral.Home.Management.security;
+package p.poglodek.Funeral.Home.Management.Security;
 
 
 import org.springframework.context.annotation.Bean;

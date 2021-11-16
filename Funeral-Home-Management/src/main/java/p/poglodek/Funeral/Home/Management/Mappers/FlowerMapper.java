@@ -1,4 +1,4 @@
-package p.poglodek.Funeral.Home.Management.mappers;
+package p.poglodek.Funeral.Home.Management.Mappers;
 
 import org.springframework.stereotype.Component;
 import p.poglodek.Funeral.Home.Management.Database.Entity.FlowerType;

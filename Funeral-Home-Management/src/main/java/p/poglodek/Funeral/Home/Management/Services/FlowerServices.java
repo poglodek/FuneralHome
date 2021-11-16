@@ -1,4 +1,4 @@
-package p.poglodek.Funeral.Home.Management.services;
+package p.poglodek.Funeral.Home.Management.Services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -8,13 +8,13 @@ import p.poglodek.Funeral.Home.Management.Database.Repository.UserRepository;
 import p.poglodek.Funeral.Home.Management.Dto.Flower.FlowerDto;
 import p.poglodek.Funeral.Home.Management.Enum.CrudEnum;
 import p.poglodek.Funeral.Home.Management.Helpers.LongHelper;
-import p.poglodek.Funeral.Home.Management.mappers.FlowerMapper;
+import p.poglodek.Funeral.Home.Management.Mappers.FlowerMapper;
 
 import java.util.ArrayList;
 
 @Service
 @AllArgsConstructor
-public class flowerServices {
+public class FlowerServices {
     private FlowerMapper flowerMapper;
     private FlowerRepository flowerReposiotry;
     private UserRepository userRepository;

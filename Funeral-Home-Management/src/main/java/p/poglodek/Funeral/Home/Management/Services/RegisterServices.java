@@ -1,4 +1,4 @@
-package p.poglodek.Funeral.Home.Management.services;
+package p.poglodek.Funeral.Home.Management.Services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

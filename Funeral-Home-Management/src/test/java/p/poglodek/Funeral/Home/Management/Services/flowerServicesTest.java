@@ -1,4 +1,4 @@
-package p.poglodek.Funeral.Home.Management.services;
+package p.poglodek.Funeral.Home.Management.Services;
 
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
@@ -14,7 +14,7 @@ import p.poglodek.Funeral.Home.Management.Database.Repository.UserRepository;
 import p.poglodek.Funeral.Home.Management.Dto.Flower.FlowerDto;
 import p.poglodek.Funeral.Home.Management.Enum.CrudEnum;
 import p.poglodek.Funeral.Home.Management.Helpers.LongHelper;
-import p.poglodek.Funeral.Home.Management.mappers.FlowerMapper;
+import p.poglodek.Funeral.Home.Management.Mappers.FlowerMapper;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
@@ -26,7 +26,7 @@ class flowerServicesTest {
     private FlowerRepository flowerReposiotry;
     @Mock
     private UserRepository userRepository;
-    private p.poglodek.Funeral.Home.Management.services.flowerServices flowerServices;
+    private FlowerServices flowerServices;
 
     @Before
     public void setUp() {
@@ -44,7 +44,7 @@ class flowerServicesTest {
     @Test
     void addFlower_InCorrectName_ShouldReturn_CrudEnumINVALID_NAME() {
 
-        flowerServices = new flowerServices(new FlowerMapper(),flowerReposiotry,userRepository, new LongHelper());
+        flowerServices = new FlowerServices(new FlowerMapper(),flowerReposiotry,userRepository, new LongHelper());
         var flowerDto = new FlowerDto(0L, "","Testing Flower","Very pretty flower", 12.3);
         var result = flowerServices.AddFlower(flowerDto);
         assertEquals(CrudEnum.INVALID_NAME, result);
@@ -52,7 +52,7 @@ class flowerServicesTest {
     @Test
     void addFlower_InCorrectDescription_ShouldReturn_CrudEnumINVALID_DESCRIPTION() {
 
-        flowerServices = new flowerServices(new FlowerMapper(),flowerReposiotry,userRepository, new LongHelper());
+        flowerServices = new FlowerServices(new FlowerMapper(),flowerReposiotry,userRepository, new LongHelper());
         var flowerDto = new FlowerDto(0L, "Test","Testing Flower","", 12.3);
         var result = flowerServices.AddFlower(flowerDto);
         assertEquals(CrudEnum.INVALID_DESCRIPTION, result);
@@ -60,7 +60,7 @@ class flowerServicesTest {
     @Test
     void addFlower_PriceEqualZero_ShouldReturn_CrudEnumINVALID_DESCRIPTION() {
 
-        flowerServices = new flowerServices(new FlowerMapper(),flowerReposiotry,userRepository, new LongHelper());
+        flowerServices = new FlowerServices(new FlowerMapper(),flowerReposiotry,userRepository, new LongHelper());
         var flowerDto = new FlowerDto(0L, "Test","Testing Flower","Very pretty flower", 0);
         var result = flowerServices.AddFlower(flowerDto);
         assertEquals(CrudEnum.INVALID_PRICE, result);
@@ -68,7 +68,7 @@ class flowerServicesTest {
     @Test
     void addFlower_PriceLessZero_ShouldReturn_CrudEnumINVALID_DESCRIPTION() {
 
-        flowerServices = new flowerServices(new FlowerMapper(),flowerReposiotry,userRepository, new LongHelper());
+        flowerServices = new FlowerServices(new FlowerMapper(),flowerReposiotry,userRepository, new LongHelper());
         var flowerDto = new FlowerDto(0L, "Test","Testing Flower","Very pretty flower", -1);
         var result = flowerServices.AddFlower(flowerDto);
         assertEquals(CrudEnum.INVALID_PRICE, result);

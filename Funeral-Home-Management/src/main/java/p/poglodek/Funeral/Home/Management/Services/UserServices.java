@@ -1,4 +1,4 @@
-package p.poglodek.Funeral.Home.Management.services;
+package p.poglodek.Funeral.Home.Management.Services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -8,7 +8,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import p.poglodek.Funeral.Home.Management.Database.Repository.UserRepository;
 import p.poglodek.Funeral.Home.Management.Enum.StatusRegister;
-import p.poglodek.Funeral.Home.Management.mappers.UserMapper;
+import p.poglodek.Funeral.Home.Management.Mappers.UserMapper;
 import p.poglodek.Funeral.Home.Management.Dto.User.UserRegisterDto;
 import p.poglodek.Funeral.Home.Management.Helpers.EmailValidator;
 
