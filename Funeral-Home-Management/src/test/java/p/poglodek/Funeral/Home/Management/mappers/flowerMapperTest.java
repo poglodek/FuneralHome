@@ -2,7 +2,7 @@ package p.poglodek.Funeral.Home.Management.mappers;
 
 import lombok.AllArgsConstructor;
 import org.junit.jupiter.api.Test;
-import p.poglodek.Funeral.Home.Management.Database.entity.FlowerType;
+import p.poglodek.Funeral.Home.Management.Database.Entity.FlowerType;
 import p.poglodek.Funeral.Home.Management.Dto.Flower.FlowerDto;
 
 import java.util.ArrayList;

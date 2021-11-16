@@ -1,8 +1,8 @@
 package p.poglodek.Funeral.Home.Management.mappers;
 
 import org.springframework.stereotype.Service;
-import p.poglodek.Funeral.Home.Management.Database.entity.BurialType;
-import p.poglodek.Funeral.Home.Management.Dto.burialType.BurialTypeDto;
+import p.poglodek.Funeral.Home.Management.Database.Entity.BurialType;
+import p.poglodek.Funeral.Home.Management.Dto.BurialType.BurialTypeDto;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,8 +1,8 @@
 package p.poglodek.Funeral.Home.Management.mappers;
 
 import org.junit.jupiter.api.Test;
-import p.poglodek.Funeral.Home.Management.Database.entity.BurialType;
-import p.poglodek.Funeral.Home.Management.Dto.burialType.BurialTypeDto;
+import p.poglodek.Funeral.Home.Management.Database.Entity.BurialType;
+import p.poglodek.Funeral.Home.Management.Dto.BurialType.BurialTypeDto;
 
 import static org.junit.jupiter.api.Assertions.*;
 

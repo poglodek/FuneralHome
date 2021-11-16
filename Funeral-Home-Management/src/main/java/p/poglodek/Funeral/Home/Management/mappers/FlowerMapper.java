@@ -1,7 +1,7 @@
 package p.poglodek.Funeral.Home.Management.mappers;
 
 import org.springframework.stereotype.Component;
-import p.poglodek.Funeral.Home.Management.Database.entity.FlowerType;
+import p.poglodek.Funeral.Home.Management.Database.Entity.FlowerType;
 import p.poglodek.Funeral.Home.Management.Dto.Flower.FlowerDto;
 
 import java.util.ArrayList;

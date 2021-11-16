@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import p.poglodek.Funeral.Home.Management.Dto.burialType.BurialTypeDto;
+import p.poglodek.Funeral.Home.Management.Dto.BurialType.BurialTypeDto;
 import p.poglodek.Funeral.Home.Management.Enum.CrudEnum;
 import p.poglodek.Funeral.Home.Management.services.BurialTypeServices;
 

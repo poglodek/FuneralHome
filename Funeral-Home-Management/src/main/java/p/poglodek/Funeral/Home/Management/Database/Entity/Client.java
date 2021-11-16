@@ -1,4 +1,4 @@
-package p.poglodek.Funeral.Home.Management.Database.entity;
+package p.poglodek.Funeral.Home.Management.Database.Entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,7 +20,7 @@ public class Client {
     private String firstName;
     private String lastName;
     private String email;
-    private String phone;
+    private int phone;
     @ManyToOne
     @JoinColumn(nullable = true)
     private User createdBy;

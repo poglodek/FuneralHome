@@ -1,4 +1,4 @@
-package p.poglodek.Funeral.Home.Management.Dto.burialType;
+package p.poglodek.Funeral.Home.Management.Dto.BurialType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

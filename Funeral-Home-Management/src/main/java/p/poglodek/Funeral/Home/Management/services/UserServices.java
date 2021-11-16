@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import p.poglodek.Funeral.Home.Management.Database.repository.UserRepository;
+import p.poglodek.Funeral.Home.Management.Database.Repository.UserRepository;
 import p.poglodek.Funeral.Home.Management.Enum.StatusRegister;
 import p.poglodek.Funeral.Home.Management.mappers.UserMapper;
 import p.poglodek.Funeral.Home.Management.Dto.User.UserRegisterDto;

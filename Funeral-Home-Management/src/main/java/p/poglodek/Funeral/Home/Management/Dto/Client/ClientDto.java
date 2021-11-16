@@ -1,4 +1,4 @@
-package p.poglodek.Funeral.Home.Management.Dto.client;
+package p.poglodek.Funeral.Home.Management.Dto.Client;
 
 
 import lombok.AllArgsConstructor;
@@ -15,5 +15,5 @@ public class ClientDto {
     private String firstName;
     private String lastName;
     private String email;
-    private String phone;
+    private int phone;
 }
