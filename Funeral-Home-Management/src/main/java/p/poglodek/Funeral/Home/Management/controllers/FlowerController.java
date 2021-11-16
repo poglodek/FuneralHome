@@ -8,17 +8,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import p.poglodek.Funeral.Home.Management.Dto.Flower.FlowerDto;
 import p.poglodek.Funeral.Home.Management.Enum.CrudEnum;
-import p.poglodek.Funeral.Home.Management.services.flowerServices;
+
 
 @Controller
 @AllArgsConstructor
 @RequestMapping("/flower")
 public class FlowerController {
 
-    private flowerServices flowerServices;
+    private p.poglodek.Funeral.Home.Management.services.flowerServices flowerServices;
 
 
-    @GetMapping("/all")
+    @GetMapping("/")
     public String flowersList(Model model){
         var username = SecurityContextHolder.getContext().getAuthentication().getName();
 
@@ -38,7 +38,7 @@ public class FlowerController {
     public String editFlower(@PathVariable("id") String id, Model model)
     {
         model.addAttribute("status","Edit Flower");
-        model.addAttribute("flowerDto",flowerServices.getFlower(id));
+        model.addAttribute("flowerDto", flowerServices.getFlower(id));
         model.addAttribute("flowerId", id);
 
         return "/flowers/flowerEdit";

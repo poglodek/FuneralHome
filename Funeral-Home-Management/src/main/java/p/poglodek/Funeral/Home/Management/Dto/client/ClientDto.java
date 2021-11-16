@@ -1,19 +1,19 @@
-package p.poglodek.Funeral.Home.Management.Dto.User;
+package p.poglodek.Funeral.Home.Management.Dto.client;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
 @Setter
-@NoArgsConstructor
+@Getter
 @AllArgsConstructor
-public class userRegisterDto {
-
+@NoArgsConstructor
+public class ClientDto {
+    private Long id;
     private String firstName;
     private String lastName;
     private String email;
-    private String password;
-    private int phoneNumber;
+    private String phone;
 }

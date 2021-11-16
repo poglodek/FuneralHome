@@ -1,15 +1,15 @@
 package p.poglodek.Funeral.Home.Management.mappers;
 
 import org.springframework.stereotype.Component;
-import p.poglodek.Funeral.Home.Management.Database.entity.flowerType;
+import p.poglodek.Funeral.Home.Management.Database.entity.FlowerType;
 import p.poglodek.Funeral.Home.Management.Dto.Flower.FlowerDto;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class flowerMapper {
-    public FlowerDto mapToDto(flowerType flower){
+public class FlowerMapper {
+    public FlowerDto mapToDto(FlowerType flower){
             return new FlowerDto(
                     flower.getId(),
                     flower.getName(),
@@ -18,8 +18,8 @@ public class flowerMapper {
                     flower.getPrice()
         );
     }
-    public flowerType mapToModel(FlowerDto flower){
-        return new flowerType(
+    public FlowerType mapToModel(FlowerDto flower){
+        return new FlowerType(
                 0l,
                 flower.getName(),
                 flower.getType(),
@@ -28,7 +28,7 @@ public class flowerMapper {
                 null,null
         );
     }
-    public ArrayList<FlowerDto> mapListToDto(List<flowerType> flowers){
+    public ArrayList<FlowerDto> mapListToDto(List<FlowerType> flowers){
         var list = new ArrayList<FlowerDto>();
         for (var flower: flowers) {
             list.add(mapToDto(flower));

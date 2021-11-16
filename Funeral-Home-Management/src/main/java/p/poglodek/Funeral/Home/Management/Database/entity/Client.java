@@ -13,18 +13,18 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class client {
+public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstName;
     private String lastName;
     private String email;
-    private String password;
+    private String phone;
     @ManyToOne
     @JoinColumn(nullable = true)
-    private user createdBy;
+    private User createdBy;
     @OneToOne
-    private  funeralInformation funeralInformation;
+    private FuneralInformation funeralInformation;
 
 }

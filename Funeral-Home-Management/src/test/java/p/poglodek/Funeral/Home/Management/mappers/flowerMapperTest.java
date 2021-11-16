@@ -2,7 +2,7 @@ package p.poglodek.Funeral.Home.Management.mappers;
 
 import lombok.AllArgsConstructor;
 import org.junit.jupiter.api.Test;
-import p.poglodek.Funeral.Home.Management.Database.entity.flowerType;
+import p.poglodek.Funeral.Home.Management.Database.entity.FlowerType;
 import p.poglodek.Funeral.Home.Management.Dto.Flower.FlowerDto;
 
 import java.util.ArrayList;
@@ -16,8 +16,8 @@ class flowerMapperTest {
 
     @Test
     void mapToDto() {
-        var flowerMapper = new flowerMapper();
-        var model = new flowerType(1l,"tulip", "Nice flower", "Red tulip flower", 12.99, null,null);
+        var flowerMapper = new FlowerMapper();
+        var model = new FlowerType(1l,"tulip", "Nice flower", "Red tulip flower", 12.99, null,null);
         var dto = new FlowerDto(1l,"tulip", "Nice flower", "Red tulip flower", 12.99);
         var dtoFromMapper = flowerMapper.mapToDto(model);
         assertEquals(dto.getName(), dtoFromMapper.getName());
@@ -29,8 +29,8 @@ class flowerMapperTest {
     @Test
     void mapToModel() {
 
-        var flowerMapper = new flowerMapper();
-        var model = new flowerType(1l,"tulip", "Nice flower", "Red tulip flower", 12.99, null,null);
+        var flowerMapper = new FlowerMapper();
+        var model = new FlowerType(1l,"tulip", "Nice flower", "Red tulip flower", 12.99, null,null);
         var dto = new FlowerDto(1l,"tulip", "Nice flower", "Red tulip flower", 12.99);
         var modelFromMapper = flowerMapper.mapToModel(dto);
         assertEquals(dto.getName(), modelFromMapper.getName());
@@ -41,9 +41,9 @@ class flowerMapperTest {
 
     @Test
     void mapListToDto() {
-        var flowerMapper = new flowerMapper();
-        var model = new flowerType(1l,"tulip", "Nice flower", "Red tulip flower", 12.99, null,null);
-        var modelList =new ArrayList<flowerType>();
+        var flowerMapper = new FlowerMapper();
+        var model = new FlowerType(1l,"tulip", "Nice flower", "Red tulip flower", 12.99, null,null);
+        var modelList =new ArrayList<FlowerType>();
         modelList.add(model);
         var dto = new FlowerDto(1l,"tulip", "Nice flower", "Red tulip flower", 12.99);
         var dtosFromMapper = flowerMapper.mapListToDto(modelList);

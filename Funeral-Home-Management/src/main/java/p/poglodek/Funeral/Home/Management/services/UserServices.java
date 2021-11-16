@@ -6,19 +6,19 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import p.poglodek.Funeral.Home.Management.Database.repository.userRepository;
-import p.poglodek.Funeral.Home.Management.Enum.statusRegister;
-import p.poglodek.Funeral.Home.Management.mappers.userMapper;
-import p.poglodek.Funeral.Home.Management.Dto.User.userRegisterDto;
-import p.poglodek.Funeral.Home.Management.Helpers.emailValidator;
+import p.poglodek.Funeral.Home.Management.Database.repository.UserRepository;
+import p.poglodek.Funeral.Home.Management.Enum.StatusRegister;
+import p.poglodek.Funeral.Home.Management.mappers.UserMapper;
+import p.poglodek.Funeral.Home.Management.Dto.User.UserRegisterDto;
+import p.poglodek.Funeral.Home.Management.Helpers.EmailValidator;
 
 @Service
 @AllArgsConstructor
-public class userServices implements UserDetailsService {
+public class UserServices implements UserDetailsService {
 
-    private final userRepository userRepository;
-    private final userMapper userMapper;
-    private final emailValidator emailValidator;
+    private final UserRepository userRepository;
+    private final UserMapper userMapper;
+    private final EmailValidator emailValidator;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
 
@@ -28,14 +28,14 @@ public class userServices implements UserDetailsService {
         return userRepository.findByEmail(email)
                 .orElseThrow(()-> new UsernameNotFoundException("email not found."));
     }
-    public statusRegister signUpUser(userRegisterDto userRegisterDto)
+    public StatusRegister signUpUser(UserRegisterDto userRegisterDto)
     {
-        if(!emailValidator.test(userRegisterDto.getEmail())) return statusRegister.EMAIL_NOT_VALID;
+        if(!emailValidator.test(userRegisterDto.getEmail())) return StatusRegister.EMAIL_NOT_VALID;
         var user = userMapper.mapToUser(userRegisterDto);
-        if(userRepository.findByEmail(user.getEmail()).isPresent()) return statusRegister.USER_EXIST;
+        if(userRepository.findByEmail(user.getEmail()).isPresent()) return StatusRegister.USER_EXIST;
         var encodedPassword = bCryptPasswordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
         userRepository.save(user);
-        return statusRegister.OK;
+        return StatusRegister.OK;
     }
 }

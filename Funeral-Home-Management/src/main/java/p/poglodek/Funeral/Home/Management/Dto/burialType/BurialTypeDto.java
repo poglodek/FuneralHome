@@ -9,7 +9,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class burialTypeDto {
+public class BurialTypeDto {
     private Long id;
     private String name;
     private String type;

@@ -14,21 +14,21 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class funeralInformation {
+public class FuneralInformation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToOne
-    private client client;
+    private Client client;
     private String bodyCoolerNumber;
     private boolean isInCooler;
     private Date dateOfBurial;
     private String cemeteryAddress;
     private boolean isInCemetery;
     @OneToOne
-    private burialType wayOfBurial;
+    private BurialType wayOfBurial;
     @ManyToOne
-    private  flowerType flowerType;
+    private FlowerType flowerType;
     @ManyToOne
-    private  burialType burialType;
+    private BurialType burialType;
 }

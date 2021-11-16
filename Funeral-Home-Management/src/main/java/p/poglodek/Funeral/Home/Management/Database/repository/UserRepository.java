@@ -3,13 +3,13 @@ package p.poglodek.Funeral.Home.Management.Database.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import p.poglodek.Funeral.Home.Management.Database.entity.user;
+import p.poglodek.Funeral.Home.Management.Database.entity.User;
 
 import java.util.Optional;
 
 @Repository
 @Transactional(readOnly = true)
-public interface userRepository extends JpaRepository<user, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
-    Optional<user> findByEmail(String email);
+    Optional<User> findByEmail(String email);
 }

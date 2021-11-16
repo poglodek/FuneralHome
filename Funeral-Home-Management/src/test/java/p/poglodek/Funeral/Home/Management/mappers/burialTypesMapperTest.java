@@ -1,8 +1,8 @@
 package p.poglodek.Funeral.Home.Management.mappers;
 
 import org.junit.jupiter.api.Test;
-import p.poglodek.Funeral.Home.Management.Database.entity.burialType;
-import p.poglodek.Funeral.Home.Management.Dto.burialType.burialTypeDto;
+import p.poglodek.Funeral.Home.Management.Database.entity.BurialType;
+import p.poglodek.Funeral.Home.Management.Dto.burialType.BurialTypeDto;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -10,9 +10,9 @@ class burialTypesMapperTest {
 
     @Test
     void mapToDto() {
-        var mapper = new burialTypesMapper();
-        var burialType = new burialType(0L,"test","type","Desc",12.3,null,null);
-        var burialTypeDto = new burialTypeDto(0L,"test","type","Desc",12.3);
+        var mapper = new BurialTypesMapper();
+        var burialType = new BurialType(0L,"test","type","Desc",12.3,null,null);
+        var burialTypeDto = new BurialTypeDto(0L,"test","type","Desc",12.3);
         var mapped = mapper.mapToDto(burialType);
         assertEquals(burialTypeDto.getId(), mapped.getId());
         assertEquals(burialTypeDto.getName(), mapped.getName());
@@ -23,9 +23,9 @@ class burialTypesMapperTest {
 
     @Test
     void mapToModel() {
-        var mapper = new burialTypesMapper();
-        var burialType = new burialType(0L,"test","type","Desc",12.3,null,null);
-        var burialTypeDto = new burialTypeDto(0L,"test","type","Desc",12.3);
+        var mapper = new BurialTypesMapper();
+        var burialType = new BurialType(0L,"test","type","Desc",12.3,null,null);
+        var burialTypeDto = new BurialTypeDto(0L,"test","type","Desc",12.3);
         var mapped = mapper.mapToModel(burialTypeDto);
         assertEquals(burialType.getId(), mapped.getId());
         assertEquals(burialType.getName(), mapped.getName());

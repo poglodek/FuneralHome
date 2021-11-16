@@ -8,13 +8,13 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
-import p.poglodek.Funeral.Home.Management.Database.entity.user;
-import p.poglodek.Funeral.Home.Management.Database.repository.flowerRepository;
-import p.poglodek.Funeral.Home.Management.Database.repository.userRepository;
+import p.poglodek.Funeral.Home.Management.Database.entity.User;
+import p.poglodek.Funeral.Home.Management.Database.repository.FlowerRepository;
+import p.poglodek.Funeral.Home.Management.Database.repository.UserRepository;
 import p.poglodek.Funeral.Home.Management.Dto.Flower.FlowerDto;
 import p.poglodek.Funeral.Home.Management.Enum.CrudEnum;
 import p.poglodek.Funeral.Home.Management.Helpers.LongHelper;
-import p.poglodek.Funeral.Home.Management.mappers.flowerMapper;
+import p.poglodek.Funeral.Home.Management.mappers.FlowerMapper;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
@@ -23,10 +23,10 @@ import static org.mockito.Mockito.when;
 class flowerServicesTest {
 
     @Mock
-    private flowerRepository flowerReposiotry;
+    private FlowerRepository flowerReposiotry;
     @Mock
-    private userRepository userRepository;
-    private flowerServices flowerServices;
+    private UserRepository userRepository;
+    private p.poglodek.Funeral.Home.Management.services.flowerServices flowerServices;
 
     @Before
     public void setUp() {
@@ -36,7 +36,7 @@ class flowerServicesTest {
         Mockito.when(securityContext.getAuthentication()).thenReturn(authentication);
         SecurityContextHolder.setContext(securityContext);
         when(SecurityContextHolder.getContext().getAuthentication().getName()).thenReturn("test@mail.com");
-        var userTest = new user("First","Last","test@mail.com","P4S5w0rd!.!", 123123123);
+        var userTest = new User("First","Last","test@mail.com","P4S5w0rd!.!", 123123123);
         when(userRepository.findByEmail("test@mail.com")).thenReturn(java.util.Optional.of(userTest));
     }
 
@@ -44,7 +44,7 @@ class flowerServicesTest {
     @Test
     void addFlower_InCorrectName_ShouldReturn_CrudEnumINVALID_NAME() {
 
-        flowerServices = new flowerServices(new flowerMapper(),flowerReposiotry,userRepository, new LongHelper());
+        flowerServices = new flowerServices(new FlowerMapper(),flowerReposiotry,userRepository, new LongHelper());
         var flowerDto = new FlowerDto(0L, "","Testing Flower","Very pretty flower", 12.3);
         var result = flowerServices.AddFlower(flowerDto);
         assertEquals(CrudEnum.INVALID_NAME, result);
@@ -52,7 +52,7 @@ class flowerServicesTest {
     @Test
     void addFlower_InCorrectDescription_ShouldReturn_CrudEnumINVALID_DESCRIPTION() {
 
-        flowerServices = new flowerServices(new flowerMapper(),flowerReposiotry,userRepository, new LongHelper());
+        flowerServices = new flowerServices(new FlowerMapper(),flowerReposiotry,userRepository, new LongHelper());
         var flowerDto = new FlowerDto(0L, "Test","Testing Flower","", 12.3);
         var result = flowerServices.AddFlower(flowerDto);
         assertEquals(CrudEnum.INVALID_DESCRIPTION, result);
@@ -60,7 +60,7 @@ class flowerServicesTest {
     @Test
     void addFlower_PriceEqualZero_ShouldReturn_CrudEnumINVALID_DESCRIPTION() {
 
-        flowerServices = new flowerServices(new flowerMapper(),flowerReposiotry,userRepository, new LongHelper());
+        flowerServices = new flowerServices(new FlowerMapper(),flowerReposiotry,userRepository, new LongHelper());
         var flowerDto = new FlowerDto(0L, "Test","Testing Flower","Very pretty flower", 0);
         var result = flowerServices.AddFlower(flowerDto);
         assertEquals(CrudEnum.INVALID_PRICE, result);
@@ -68,7 +68,7 @@ class flowerServicesTest {
     @Test
     void addFlower_PriceLessZero_ShouldReturn_CrudEnumINVALID_DESCRIPTION() {
 
-        flowerServices = new flowerServices(new flowerMapper(),flowerReposiotry,userRepository, new LongHelper());
+        flowerServices = new flowerServices(new FlowerMapper(),flowerReposiotry,userRepository, new LongHelper());
         var flowerDto = new FlowerDto(0L, "Test","Testing Flower","Very pretty flower", -1);
         var result = flowerServices.AddFlower(flowerDto);
         assertEquals(CrudEnum.INVALID_PRICE, result);

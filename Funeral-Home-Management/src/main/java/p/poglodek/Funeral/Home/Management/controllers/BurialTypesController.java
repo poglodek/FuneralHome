@@ -2,22 +2,19 @@ package p.poglodek.Funeral.Home.Management.controllers;
 
 
 import lombok.AllArgsConstructor;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import p.poglodek.Funeral.Home.Management.Dto.Flower.FlowerDto;
-import p.poglodek.Funeral.Home.Management.Dto.burialType.burialTypeDto;
+import p.poglodek.Funeral.Home.Management.Dto.burialType.BurialTypeDto;
 import p.poglodek.Funeral.Home.Management.Enum.CrudEnum;
-import p.poglodek.Funeral.Home.Management.services.burialTypeServices;
-import p.poglodek.Funeral.Home.Management.services.flowerServices;
+import p.poglodek.Funeral.Home.Management.services.BurialTypeServices;
 
 @Controller
 @AllArgsConstructor
 @RequestMapping("/burialTypes")
 public class BurialTypesController {
 
-    private burialTypeServices burialTypeServices;
+    private BurialTypeServices burialTypeServices;
 
     @GetMapping("/edit/{id}")
     public String editBurialType(@PathVariable("id") String id, Model model){
@@ -29,7 +26,7 @@ public class BurialTypesController {
         return "burialTypes/burialTypeEdit";
     }
     @PostMapping("/edit/{id}")
-    public String editBurialType(@PathVariable("id") String id, Model model,@ModelAttribute burialTypeDto burialTypeDto) {
+    public String editBurialType(@PathVariable("id") String id, Model model,@ModelAttribute BurialTypeDto burialTypeDto) {
         var result = burialTypeServices.updateBurialType(burialTypeDto, id);
         if (result == CrudEnum.UPDATED)
             return "redirect:/burialTypes/all";
@@ -51,7 +48,7 @@ public class BurialTypesController {
         return "burialTypes/burialTypeInfo";
     }
 
-    @GetMapping("/all")
+    @GetMapping("")
     public String burialTypesList(Model model)
     {
         model.addAttribute("burialTypes", burialTypeServices.getBurialTypesDtoOfUser());
@@ -60,11 +57,11 @@ public class BurialTypesController {
     @GetMapping("/add")
     public String addBurialType(Model model){
         model.addAttribute("status", "Add new burial type");
-        model.addAttribute("burialTypeDto", new burialTypeDto());
+        model.addAttribute("burialTypeDto", new BurialTypeDto());
         return "burialTypes/burialTypeAdd";
     }
     @PostMapping("/add")
-    public String addBurialType(Model model, @ModelAttribute burialTypeDto burialTypeDto){
+    public String addBurialType(Model model, @ModelAttribute BurialTypeDto burialTypeDto){
         var result = burialTypeServices.AddNewBurialType(burialTypeDto);
         if (result == CrudEnum.UPDATED)
             return "redirect:/burialTypes/all";

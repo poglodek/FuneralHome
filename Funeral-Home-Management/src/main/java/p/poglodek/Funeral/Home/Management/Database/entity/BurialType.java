@@ -13,7 +13,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class flowerType {
+public class BurialType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,7 +22,7 @@ public class flowerType {
     private String description;
     private double price;
     @OneToOne
-    private user user;
+    private User user;
     @OneToMany
-    private List<funeralInformation> funeralInformationList;
+    private List<FuneralInformation> funeralInformationList;
 }

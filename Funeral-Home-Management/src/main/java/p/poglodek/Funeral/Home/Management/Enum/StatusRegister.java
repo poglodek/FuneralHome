@@ -1,6 +1,6 @@
 package p.poglodek.Funeral.Home.Management.Enum;
 
-public enum statusRegister {
+public enum StatusRegister {
     USER_EXIST,
     EMAIL_NOT_VALID,
     OK,
