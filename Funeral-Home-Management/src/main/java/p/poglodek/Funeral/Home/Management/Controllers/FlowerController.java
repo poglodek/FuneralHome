@@ -49,7 +49,7 @@ public class FlowerController {
     {
         var result = flowerServices.updateFlower(flowerDto, id);
         if (result == CrudEnum.UPDATED)
-            return "redirect:/flower/all";
+            return "redirect:/flower/";
         else if(result == CrudEnum.INVALID_PRICE)
             model.addAttribute("status","Invalid Price");
         else if(result == CrudEnum.INVALID_DESCRIPTION)

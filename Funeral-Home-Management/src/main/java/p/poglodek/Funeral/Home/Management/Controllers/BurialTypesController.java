@@ -29,7 +29,7 @@ public class BurialTypesController {
     public String editBurialType(@PathVariable("id") String id, Model model,@ModelAttribute BurialTypeDto burialTypeDto) {
         var result = burialTypeServices.updateBurialType(burialTypeDto, id);
         if (result == CrudEnum.UPDATED)
-            return "redirect:/burialTypes/all";
+            return "redirect:/burialTypes/";
         else if(result == CrudEnum.INVALID_PRICE)
             model.addAttribute("status","Invalid Price");
         else if(result == CrudEnum.INVALID_DESCRIPTION)
@@ -64,7 +64,7 @@ public class BurialTypesController {
     public String addBurialType(Model model, @ModelAttribute BurialTypeDto burialTypeDto){
         var result = burialTypeServices.AddNewBurialType(burialTypeDto);
         if (result == CrudEnum.UPDATED)
-            return "redirect:/burialTypes/all";
+            return "redirect:/burialTypes/";
         else if(result == CrudEnum.INVALID_PRICE)
             model.addAttribute("status","Invalid Price");
         else if(result == CrudEnum.INVALID_DESCRIPTION)
