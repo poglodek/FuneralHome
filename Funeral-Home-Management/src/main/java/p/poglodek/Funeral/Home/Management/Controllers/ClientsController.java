@@ -50,4 +50,31 @@ public class ClientsController {
         model.addAttribute("clientDto",clientDto);
         return "client/ClientAdd";
     }
+    @GetMapping("edit/{id}")
+    public String editClient(@PathVariable("id") String id, Model model){
+        ClientDto clientDto = clientServices.getClientDto(id);
+        model.addAttribute("status","Edit Client");
+        model.addAttribute("clientDtoId",id);
+        model.addAttribute("clientDto", clientDto);
+        return "client/ClientEdit";
+    }
+    @PostMapping("edit/{id}")
+    public String editClient(@PathVariable("id") String id, Model model, @ModelAttribute ClientDto clientDto){
+        var result = clientServices.editClient(clientDto);
+        if (result == CrudEnum.INVALID_FIRST_NAME)
+            model.addAttribute("status", "Invalid Client First Name");
+        else if(result == CrudEnum.INVALID_LAST_NAME)
+            model.addAttribute("status", "Invalid Client Last Name");
+        else if(result == CrudEnum.INVALID_EMAIL)
+            model.addAttribute("status", "Invalid Client Email");
+        else if(result == CrudEnum.INVALID_PHONE)
+            model.addAttribute("status", "Invalid Phone Email");
+        else if(result == CrudEnum.UPDATED)
+            return "redirect:/client/";
+        else
+            model.addAttribute("status", "Cannot update Client");
+        model.addAttribute("clientDtoId",id);
+        model.addAttribute("clientDto", clientDto);
+        return "client/ClientEdit";
+    }
 }

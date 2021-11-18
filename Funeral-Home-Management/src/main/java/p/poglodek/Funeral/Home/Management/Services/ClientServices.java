@@ -62,4 +62,18 @@ public class ClientServices {
             return CrudEnum.INVALID_PHONE;
         return CrudEnum.VALID;
     }
+
+    public CrudEnum editClient(ClientDto clientDto) {
+        if (!canIGetClient(clientDto.getId()+""))
+            return CrudEnum.CANNOT_UPDATE;
+        Client client = clientRepository.findById(clientDto.getId()).get();
+        client.setEmail(client.getEmail());
+        client.setFirstName(clientDto.getFirstName());
+        client.setLastName(clientDto.getFirstName());
+        client.setPhone(clientDto.getPhone());
+        clientRepository.save(client);
+        return CrudEnum.UPDATED;
+
+
+    }
 }
