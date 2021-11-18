@@ -23,7 +23,7 @@ public class ClientsController {
     }
     @GetMapping("{id}")
     public String clientInfo(@PathVariable("id") String id, Model model){
-        model.addAttribute("client", clientServices.getClientDto(id));
+        model.addAttribute("clientDto", clientServices.getClientDto(id));
         return "client/clientInfo";
     }
     @GetMapping("add")
