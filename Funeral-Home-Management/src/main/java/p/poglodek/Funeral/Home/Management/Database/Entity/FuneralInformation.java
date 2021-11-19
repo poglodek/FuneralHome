@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 import javax.persistence.*;
@@ -22,6 +23,7 @@ public class FuneralInformation {
     private Client client;
     private String bodyCoolerNumber;
     private boolean isInCooler;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateOfBurial;
     private String cemeteryAddress;
     private boolean isInCemetery;
