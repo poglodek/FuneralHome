@@ -36,6 +36,8 @@ public class User implements UserDetails {
     private FlowerType flowerType;
     @OneToOne
     private FuneralInformation funeralInformation;
+    @OneToMany
+    private List<FuneralInformation> funeralInformations;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

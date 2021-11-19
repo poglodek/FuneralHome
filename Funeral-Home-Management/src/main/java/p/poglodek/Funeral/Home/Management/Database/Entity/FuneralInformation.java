@@ -31,4 +31,6 @@ public class FuneralInformation {
     private FlowerType flowerType;
     @ManyToOne
     private BurialType burialType;
+    @ManyToOne
+    private User createdBy;
 }
