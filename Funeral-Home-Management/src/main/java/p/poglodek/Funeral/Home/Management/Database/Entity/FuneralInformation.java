@@ -23,12 +23,10 @@ public class FuneralInformation {
     private Client client;
     private String bodyCoolerNumber;
     private boolean isInCooler;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private Date dateOfBurial;
     private String cemeteryAddress;
     private boolean isInCemetery;
-    @OneToOne
-    private BurialType wayOfBurial;
     @ManyToOne
     private FlowerType flowerType;
     @ManyToOne

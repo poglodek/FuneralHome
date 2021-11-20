@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import p.poglodek.Funeral.Home.Management.Database.Entity.BurialType;
 import p.poglodek.Funeral.Home.Management.Dto.FuneralInformation.FuneralInformationCreateDto;
+import p.poglodek.Funeral.Home.Management.Enum.CrudEnum;
 import p.poglodek.Funeral.Home.Management.Services.BurialTypeServices;
 import p.poglodek.Funeral.Home.Management.Services.ClientServices;
 import p.poglodek.Funeral.Home.Management.Services.FlowerServices;
@@ -43,13 +44,15 @@ public class FuneralInformationController {
     }
     @PostMapping("add")
     public String addFuneralInformation(Model model, @ModelAttribute FuneralInformationCreateDto funeralInformationCreateDto){
-        //TODO: Add logic
-        model.addAttribute("status", "Created");
+        var result = funeralInformationServices.addFuneralInformation(funeralInformationCreateDto);
+        if(result == CrudEnum.CREATED)
+            return "redirect:/FuneralInformation/";
+        else if(result == CrudEnum.INVALID_DATE)
+            model.addAttribute("status", "Invalid Date.");
         model.addAttribute("clients", clientServices.getClientsDto());
         model.addAttribute("flowers", flowerServices.GetFlowersOfUser());
         model.addAttribute("burialTypes", burialTypeServices.getBurialTypesDtoOfUser());
         model.addAttribute("FuneralInformationCreateDto", funeralInformationCreateDto);
-        //TODO: change date do dateTime!
         return "FuneralInformation/FuneralInformationAdd";
     }
 }

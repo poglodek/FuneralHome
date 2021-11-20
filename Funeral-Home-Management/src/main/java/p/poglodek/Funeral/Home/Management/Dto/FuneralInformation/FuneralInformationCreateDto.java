@@ -22,7 +22,7 @@ public class FuneralInformationCreateDto {
     private int clientId;
     private String bodyCoolerNumber;
     private boolean isInCooler;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private Date dateOfBurial;
     private String cemeteryAddress;
     private boolean isInCemetery;

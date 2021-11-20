@@ -3,6 +3,7 @@ package p.poglodek.Funeral.Home.Management.Mappers;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import p.poglodek.Funeral.Home.Management.Database.Entity.FuneralInformation;
+import p.poglodek.Funeral.Home.Management.Dto.FuneralInformation.FuneralInformationCreateDto;
 import p.poglodek.Funeral.Home.Management.Dto.FuneralInformation.FuneralInformationDto;
 
 import java.util.ArrayList;
@@ -27,5 +28,25 @@ public class FuneralInformationMapper {
             funeralInformationDtoList.add(mapToDto(funeralInfo));
         }
         return funeralInformationDtoList;
+    }
+    public FuneralInformation mapToModel(FuneralInformationDto funeralInformationDto){
+        return  new FuneralInformation(funeralInformationDto.getId(),
+                null,
+                funeralInformationDto.getBodyCoolerNumber(),
+                funeralInformationDto.isInCooler(),
+                funeralInformationDto.getDateOfBurial(),
+                funeralInformationDto.getCemeteryAddress(),
+                funeralInformationDto.isInCemetery(),
+                null,null,null);
+    }
+    public FuneralInformation mapToModel(FuneralInformationCreateDto funeralInformationDto){
+        return  new FuneralInformation(0L,
+                null,
+                funeralInformationDto.getBodyCoolerNumber(),
+                funeralInformationDto.isInCooler(),
+                funeralInformationDto.getDateOfBurial(),
+                funeralInformationDto.getCemeteryAddress(),
+                funeralInformationDto.isInCemetery(),
+                null,null,null);
     }
 }

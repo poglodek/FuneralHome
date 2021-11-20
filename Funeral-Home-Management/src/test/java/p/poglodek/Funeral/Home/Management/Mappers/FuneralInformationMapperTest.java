@@ -24,7 +24,7 @@ class FuneralInformationMapperTest {
                 false,
                 date,
                 "address",
-                true,null,null,null,null
+                true,null,null,null
                 );
         FuneralInformationDto funeralInformationDto = new FuneralInformationDto(
                 0L,
