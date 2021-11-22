@@ -1,10 +1,12 @@
 package p.poglodek.Funeral.Home.Management.Mappers;
 
 import lombok.AllArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 import p.poglodek.Funeral.Home.Management.Database.Entity.FuneralInformation;
 import p.poglodek.Funeral.Home.Management.Dto.FuneralInformation.FuneralInformationCreateDto;
 import p.poglodek.Funeral.Home.Management.Dto.FuneralInformation.FuneralInformationDto;
+import p.poglodek.Funeral.Home.Management.Dto.FuneralInformation.FuneralInformationInfoDto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,5 +50,22 @@ public class FuneralInformationMapper {
                 funeralInformationDto.getCemeteryAddress(),
                 funeralInformationDto.isInCemetery(),
                 null,null,null);
+    }
+    @SneakyThrows
+    public FuneralInformationInfoDto mapToInfoDto(FuneralInformation funeralInformation){
+        FuneralInformationDto dto = mapToDto(funeralInformation);
+
+        FuneralInformationInfoDto infoDto = new FuneralInformationInfoDto(
+                dto.getId(),
+                dto.getClientName(),
+                dto.getBodyCoolerNumber(),
+                dto.isInCooler(),
+                dto.getDateOfBurial(),
+                dto.getCemeteryAddress(),
+                dto.isInCemetery());
+
+        infoDto.setFlower(funeralInformation.getFlowerType().getName());
+        infoDto.setBurialType(funeralInformation.getBurialType().getName());
+        return infoDto;
     }
 }

@@ -9,6 +9,7 @@ import p.poglodek.Funeral.Home.Management.Database.Entity.FuneralInformation;
 import p.poglodek.Funeral.Home.Management.Database.Repository.*;
 import p.poglodek.Funeral.Home.Management.Dto.FuneralInformation.FuneralInformationCreateDto;
 import p.poglodek.Funeral.Home.Management.Dto.FuneralInformation.FuneralInformationDto;
+import p.poglodek.Funeral.Home.Management.Dto.FuneralInformation.FuneralInformationInfoDto;
 import p.poglodek.Funeral.Home.Management.Enum.CrudEnum;
 import p.poglodek.Funeral.Home.Management.Mappers.ClientMapper;
 import p.poglodek.Funeral.Home.Management.Mappers.FuneralInformationMapper;
@@ -55,5 +56,11 @@ public class FuneralInformationServices {
         if (funeralInformationDto.getDateOfBurial().before(Calendar.getInstance().getTime()) || funeralInformationDto.getDateOfBurial().after(maxDate))
             return CrudEnum.INVALID_DATE;
         return CrudEnum.VALID;
+    }
+
+    public FuneralInformationInfoDto getFuneralInformationDto(String id) {
+        
+        return funeralInformationMapper.mapToInfoDto(funeralInformationRepository.getById(Long.parseLong(id)));
+
     }
 }

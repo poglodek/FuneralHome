@@ -4,10 +4,7 @@ package p.poglodek.Funeral.Home.Management.Controllers;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import p.poglodek.Funeral.Home.Management.Database.Entity.BurialType;
 import p.poglodek.Funeral.Home.Management.Dto.FuneralInformation.FuneralInformationCreateDto;
 import p.poglodek.Funeral.Home.Management.Enum.CrudEnum;
@@ -27,12 +24,20 @@ public class FuneralInformationController {
     private BurialTypeServices burialTypeServices;
 
 
+
     @GetMapping("")
-    public String getFuneralInformation(Model model){
+    public String getListFuneralInformation(Model model){
         model.addAttribute("funeralInformational", funeralInformationServices.getFuneralInformationList());
-        model.addAttribute("FuneralInformationCreateDto", new FuneralInformationCreateDto());
         return "FuneralInformation/FuneralInformationList";
     }
+
+    @GetMapping("/{id}")
+    public String getFuneralInformation(@PathVariable("id") String id, Model model){
+        var a =  funeralInformationServices.getFuneralInformationDto(id);
+        model.addAttribute("funeralInformational",a);
+        return "FuneralInformation/FuneralInformationInfo";
+    }
+
     @GetMapping("add")
     public String addFuneralInformation(Model model){
         model.addAttribute("status", "Create new!");

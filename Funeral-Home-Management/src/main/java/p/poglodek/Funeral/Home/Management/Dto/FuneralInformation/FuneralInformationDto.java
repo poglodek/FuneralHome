@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 import p.poglodek.Funeral.Home.Management.Database.Entity.Client;
 
 import javax.persistence.OneToOne;
@@ -13,6 +14,7 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@SuperBuilder
 public class FuneralInformationDto {
     private Long id;
     private String clientName;
